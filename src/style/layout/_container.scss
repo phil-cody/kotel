@@ -1,8 +1,2 @@
 @use '../abstracts/mixins' as *;
 @use '../abstracts/variables' as *;
-
-.container {
-  @include flex-center;
-  padding: $spacing-md;
-  background-color: $primary;
-}

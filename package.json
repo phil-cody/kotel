@@ -14,7 +14,13 @@
     "type": "git",
     "url": "git+https://github.com/phil-cody/template-webpack-js-html-scss.git"
   },
-  "keywords": ["html", "css", "scss", "javascript", "webpack"],
+  "keywords": [
+    "html",
+    "css",
+    "scss",
+    "javascript",
+    "webpack"
+  ],
   "author": "Dmitrii Kachuk <antaress07@icloud.com>",
   "license": "ISC",
   "type": "module",
@@ -22,16 +28,16 @@
     "url": "https://github.com/phil-cody/template-webpack-js-html-scss/issues"
   },
   "homepage": "https://github.com/phil-cody/template-webpack-js-html-scss#readme",
-  "dependencies": {
+  "devDependencies": {
     "css-loader": "^7.1.4",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.7",
     "mini-css-extract-plugin": "^2.10.2",
     "sass": "^1.99.0",
-    "sass-loader": "^16.0.7",
+    "sass-loader": "^16.0.8",
     "style-loader": "^4.0.0",
     "webpack": "^5.106.2",
     "webpack-cli": "^7.0.2",
-    "webpack-dev-server": "^5.2.3"
+    "webpack-dev-server": "^5.2.4"
   }
 }

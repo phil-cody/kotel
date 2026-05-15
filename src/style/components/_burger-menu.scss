@@ -1,0 +1,103 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/typography" as *;
+
+.burger-menu {
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  top: -100%;
+  left: 0;
+  background-color: $surface-lowest;
+  @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-md);
+  @include transition-default;
+  @include container;
+
+  &__header {
+    width: 100%;
+    padding-top: $spacing-gutter;
+    @include flex(space-between, center);
+  }
+
+  &__logo {
+    @include flex(flex-start, flex-start, column, nowrap, 0);
+    width: max-content;
+
+    p {
+      @include logo;
+      color: $brand-primary;
+    }
+
+    img {
+      width: 18px;
+    }
+  }
+
+  &__close {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    width: calc($spacing-stack-xs + $spacing-margin-desktop);
+    height: $spacing-stack-lg;
+    background-color: transparent;
+    padding: 0;
+
+    @include tablet {
+      display: flex;
+    }
+
+    span {
+      width: calc($spacing-margin-desktop + $spacing-stack-xs);
+      height: $spacing-stack-xs;
+      background-color: $brand-primary;
+      position: relative;
+      z-index: 1;
+
+      &:first-child {
+        top: 14px;
+        transform: rotate(45deg);
+      }
+      &:last-child {
+        bottom: 14px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  &__nav {
+    width: 100%;
+
+    .header__nav-list {
+      @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-md);
+      gap: $spacing-stack-xs;
+      width: fit-content;
+    }
+
+    .header__nav-item {
+      font-size: $font-body-lg-size;
+    }
+  }
+  .burger-menu__contact {
+    @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-sm);
+    padding-bottom: $spacing-stack-sm;
+
+    .header__social {
+      font-size: $font-body-lg-size;
+    }
+
+    .burger__contact-social {
+      @include flex(flex-start, center, row, nowrap, $spacing-stack-sm);
+
+      & .social-wa {
+        background-color: $whatsapp-icon-background;
+      }
+
+      & .social-tg {
+        background-color: $telegram-icon-background;
+      }
+    }
+  }
+}
+.burger-menu__open {
+  top: 0;
+}

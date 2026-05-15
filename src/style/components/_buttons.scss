@@ -1,2 +1,20 @@
-@use '../abstracts/mixins' as *;
-@use '../abstracts/variables' as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/typography" as *;
+
+.btn {
+  border: none;
+  text-wrap: nowrap;
+  border-radius: $radius-default;
+  padding: $spacing-unit $spacing-gutter;
+  color: $surface-lowest;
+  @include label-md;
+  cursor: pointer;
+
+  &__primary {
+    background-color: $brand-primary;
+  }
+  &__safety {
+    background-color: $brand-safety;
+  }
+}

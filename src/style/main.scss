@@ -1,7 +1,13 @@
 @use './abstracts/mixins';
 @use './abstracts/variables';
-@use './base/reset';
 @use './base/typography';
-@use './layout/header';
-@use './layout/footer';
+@use './base/reset';
 @use './layout/container';
+@use './components/buttons';
+@use './layout/header';
+@use './components/burger-menu';
+@use './layout/footer';
+
+body {
+  min-height: 100dvh;
+}

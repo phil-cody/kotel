@@ -1,0 +1,52 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+@mixin logo {
+  font-size: $font-logo-size;
+  font-weight: $font-logo-weight;
+  line-height: $font-logo-line-height;
+  letter-spacing: $font-logo-letter-spacing;
+}
+
+@mixin display {
+  font-size: $font-display-size;
+  font-weight: $font-display-weight;
+  line-height: $font-display-line-height;
+  letter-spacing: $font-display-letter-spacing;
+}
+@mixin headline-lg {
+  font-size: $font-headline-lg-size;
+  font-weight: $font-headline-lg-weight;
+  line-height: $font-headline-lg-line-height;
+}
+@mixin headline-lg-mobile {
+  font-size: $font-headline-lg-mobile-size;
+  font-weight: $font-headline-lg-mobile-weight;
+  line-height: $font-headline-lg-mobile-line-height;
+}
+@mixin headline-md {
+  font-size: $font-headline-md-size;
+  font-weight: $font-headline-md-weight;
+  line-height: $font-headline-md-line-height;
+}
+@mixin body-lg {
+  font-size: $font-body-lg-size;
+  font-weight: $font-body-lg-weight;
+  line-height: $font-body-lg-line-height;
+}
+@mixin body-md {
+  font-size: $font-body-md-size;
+  font-weight: $font-body-md-weight;
+  line-height: $font-body-md-line-height;
+}
+@mixin label-md {
+  font-size: $font-label-md-size;
+  font-weight: $font-label-md-weight;
+  line-height: $font-label-md-line-height;
+  letter-spacing: $font-label-md-letter-spacing;
+}
+@mixin caption {
+  font-size: $font-caption-size;
+  font-weight: $font-caption-weight;
+  line-height: $font-caption-line-height;
+}

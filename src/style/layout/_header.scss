@@ -1,2 +1,137 @@
-@use '../abstracts/mixins' as *;
-@use '../abstracts/variables' as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/typography" as *;
+
+.header {
+  padding: 24px 0;
+
+  .container {
+    @include container;
+    @include flex(space-between, center, row);
+  }
+
+  &__logo {
+    @include flex(flex-start, flex-start, column);
+    width: max-content;
+
+    img {
+      width: 18px;
+    }
+
+    p {
+      @include logo;
+      color: $brand-primary;
+    }
+
+    span {
+      color: $brand-safety;
+    }
+  }
+
+  &__nav {
+    &-list {
+      @include flex(space-between, center, row, nowrap, minmax($spacing-stack-sm, $spacing-stack-lg));
+      max-width: 520px;
+      width: fit-content;
+      text-align: center;
+    }
+
+    &-item {
+      @include label-md;
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__social {
+    height: 100%;
+    padding: $spacing-stack-sm;
+
+    img {
+      min-width: 22px;
+      width: 22px;
+      min-height: 22px;
+      height: 22px;
+    }
+  }
+
+  &__action {
+    width: fit-content;
+    height: 100%;
+    @include flex(space-between, center, row, nowrap, $spacing-stack-md);
+
+    & .social-wa {
+      background-color: $whatsapp-icon-background;
+    }
+
+    & .social-tg {
+      background-color: $telegram-icon-background;
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    width: calc($spacing-stack-xs + $spacing-margin-desktop);
+    height: $spacing-stack-lg;
+    background-color: transparent;
+    padding: 0;
+
+    @include tablet {
+      display: flex;
+    }
+
+    & span {
+      width: 100%;
+      height: $spacing-stack-xs;
+      background-color: $brand-primary;
+      position: relative;
+
+      &:first-child {
+        top: -3px;
+      }
+      &:last-child {
+        bottom: -3px;
+      }
+    }
+    &.burger-open {
+      span {
+        &:first-child {
+          top: 1px;
+          transform: rotate(45deg);
+        }
+        &:last-child {
+          bottom: 1px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+.header__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  @include transition-default;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}

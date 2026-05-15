@@ -1,44 +1,99 @@
 // ===== ЦВЕТА
-$background: #fff;
-$surface: #f1f1f1;
-$text-inverse: #fff;
-$text-low: #9da1a8;
-$text-default: #120e1d;
-$primary: #637cf9;
-$gold: #f2b855;
+$brand-primary: #00236F;
+$brand-safety: #F97316;
+$background: #F8F9FF;
+$surface-lowest: #ffffff;
+$surface-low: #eff4ff;
+$surface-dim: #d0dbed;
+$total-black: #000;
+$on-surface-variant: #444651;
+$outline-variant: #c5c5d3;
+$telegram-icon-background: #0088CC;
+$whatsapp-icon-background: #25D366;
+$hero-overlay-start: rgba(0, 35, 111, 0.8);
+$hero-overlay-end: rgba(0, 35, 111, 0.6);
 
 // ===== СКРУГЛЕНИЯ
-$radius-xs: 10px;
-$radius-s: 15px;
-$radius-m: 20px;
-$radius-l: 30px;
-$radius-xl: 50px;
+$radius-sm: 0.25rem;
+$radius-default: 0.5rem;
+$radius-md: 0.75rem;
+$radius-lg: 1rem;
+$radius-xl: 1.5rem;
+$radius-full: 9999px;
 
 // ===== ОТСТУПЫ
-$spacing-none: 0;
-$spacing-xxxxs: 2px;
-$spacing-xxxs: 5px;
-$spacing-xxs: 8px;
-$spacing-xs: 10px;
-$spacing-sm: 15px;
-$spacing-md: 20px;
-$spacing-lg: 22px;
-$spacing-xl: 25px;
-$spacing-xxl: 30px;
-$spacing-xxxl: 40px;
-
-// ===== ЗАГОЛОВКИ
-$heading-1: 70px;
-$heading-2: 45px;
-$heading-3: 35px;
-$heading-4: 30px;
-$heading-5: 25px;
-$heading-6: 20px;
+$spacing-unit: 8px;
+$spacing-stack-xxs: 2px;
+$spacing-stack-xs: 4px;
+$spacing-stack-sm: 8px;
+$spacing-stack-md: 16px;
+$spacing-stack-lg: 32px;
+$spacing-gutter: 24px;
+$spacing-margin-mobile: 16px;
+$spacing-margin-tablet: 28px;
+$spacing-margin-desktop: 40px;
+$spacing-section-padding: 80px;
+$spacing-container-max: 1440px;
 
 // ===== ТЕКСТ
-$text-xl: 20px;
-$text-lg: 16px;
-$text-md: 14px;
-$text-sm: 12px;
-$text-xs: 10px;
-$text-xxs: 8px;
+$font-family-base: 'Inter', sans-serif;
+
+  // ===== DISPLAY
+$font-display-size: 60px;
+$font-display-weight: 800;
+$font-display-line-height: 1.1;
+$font-display-letter-spacing: -0.02em;
+
+  // ===== LOGO
+$font-logo-size: 28px;
+$font-logo-weight: 800;
+$font-logo-line-height: 1.1;
+$font-logo-letter-spacing: -0.02em;
+
+  // ===== HEADLINE-LG
+$font-headline-lg-size: 32px;
+$font-headline-lg-weight: 600;
+$font-headline-lg-line-height: 1.2;
+
+  // ===== HEADLINE-LG-MOBILE
+$font-headline-lg-mobile-size: 28px;
+$font-headline-lg-mobile-weight: 600;
+$font-headline-lg-mobile-line-height: 1.2;
+
+  // ===== // ===== HEADLINE-MD
+$font-headline-md-size: 24px;
+$font-headline-md-weight: 600;
+$font-headline-md-line-height: 1.3;
+
+  // ===== BODY-LG
+$font-body-lg-size: 20px;
+$font-body-lg-weight: 400;
+$font-body-lg-line-height: 1.6;
+
+  // ===== BODY-MD
+$font-body-md-size: 16px;
+$font-body-md-weight: 400;
+$font-body-md-line-height: 1.5;
+
+  // ===== LABEL-MD
+$font-label-md-size: 14px;
+$font-label-md-weight: 600;
+$font-label-md-line-height: 1.4;
+$font-label-md-letter-spacing: 0.01em;
+
+  // ===== CAPTION
+$font-caption-size: 12px;
+$font-caption-weight: 400;
+$font-caption-line-height: 1.4;
+
+// ===== ГРАНИЦЫ
+$border-default: 1px solid $outline-variant;
+$border-emphasis: 2px solid $brand-primary;
+$border-footer: 1px solid $surface-dim;
+
+// ===== ТЕНИ
+$shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.06);
+$shadow-xl: 0 10px 24px rgba(0, 0, 0, 0.12);
+
+// ===== MOTION
+$transition-default: 0.3s ease;

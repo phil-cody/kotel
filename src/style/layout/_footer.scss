@@ -1,2 +1,170 @@
-@use '../abstracts/mixins' as *;
-@use '../abstracts/variables' as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/typography" as *;
+
+.footer {
+  padding: $spacing-section-padding 0;
+  background-color: $on-surface-variant;
+  color: $surface-dim;
+
+  @include mobile {
+    padding: $spacing-stack-lg 0;
+  }
+
+  .container {
+    @include container;
+    @include flex(space-between, flex-start, column, nowrap, $spacing-stack-lg);
+  }
+
+  &-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-stack-lg;
+    width: 100%;
+    position: relative;
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: auto;
+      gap: $spacing-stack-md;
+    }
+
+    @include mobile-small {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  h3,
+  &__logo {
+    color: $surface-lowest;
+    @include logo;
+  }
+
+  &__logo {
+    img {
+      width: 18px;
+    }
+
+    span {
+      color: $brand-safety;
+    }
+  }
+
+  &__about,
+  &__nav {
+    @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-md);
+  }
+
+  &__about {
+    position: relative;
+    top: -18px;
+    max-width: 300px;
+
+    @include mobile-small {
+      top: 0;
+      max-width: 100%;
+    }
+  }
+
+  &__nav {
+    &-list {
+      @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-sm);
+
+      @include mobile {
+        gap: $spacing-stack-xs;
+      }
+
+      li:hover {
+        color: $brand-safety;
+      }
+    }
+
+    @include mobile {
+      grid-column: 1;
+      grid-row: 2;
+    }
+  }
+
+  &__contacts {
+    @include flex(flex-start, flex-end, column, nowrap, $spacing-stack-md);
+
+    @include mobile {
+      grid-column: 2;
+      grid-row: 1 / 3;
+    }
+
+    @include mobile-small {
+      grid-column: 1;
+      grid-row: 3;
+      align-items: flex-start;
+    }
+
+    &-content {
+      display: grid;
+      grid-template-columns: 1fr 150px;
+      gap: $spacing-stack-sm;
+      text-align: right;
+      justify-items: end;
+
+      @include mobile {
+        gap: $spacing-stack-xs;
+      }
+
+      @include mobile-small {
+        grid-template-columns: auto 1fr;
+        text-align: left;
+        justify-items: start;
+      }
+
+      & p {
+        grid-column: 1;
+      }
+
+      & a, & span {
+        grid-column: 2;
+        color: $brand-safety;
+      }
+    }
+  }
+
+  &__socials {
+    grid-column: 1 / -1;
+    @include flex(flex-start, center, row, nowrap, $spacing-stack-sm);
+  }
+
+  &__social {
+    display: block;
+    padding: $spacing-stack-sm;
+
+    img {
+      min-width: 22px;
+      width: 22px;
+      min-height: 22px;
+      height: 22px;
+    }
+
+    &.social-wa {
+      background-color: $whatsapp-icon-background;
+    }
+
+    &.social-tg {
+      background-color: $telegram-icon-background;
+    }
+  }
+
+  &-bottom {
+    @include flex(space-between, center);
+    width: 100%;
+    border-top: $border-footer;
+    padding-top: $spacing-stack-lg;
+    text-align: center;
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    & .privacy-policy {
+      color: $brand-safety;
+    }
+  }
+}

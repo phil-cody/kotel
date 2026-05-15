@@ -1,3 +1,6 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
 /*  Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
@@ -17,8 +20,10 @@
 }
 
 body {
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  font-family: $font-family-base;
+  background-color: $surface-lowest;
+  color: $on-surface-variant;
 }
 
 img, picture, video, canvas, svg {
@@ -45,6 +50,10 @@ h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+ul {
+  padding-inline: 0;
 }
 
 li {
