@@ -10,11 +10,5 @@
   color: $surface-lowest;
   @include label-md;
   cursor: pointer;
-
-  &__primary {
-    background-color: $brand-primary;
-  }
-  &__safety {
-    background-color: $brand-safety;
-  }
+  background-color: $brand-safety;
 }

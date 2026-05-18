@@ -88,7 +88,8 @@ $font-caption-line-height: 1.4;
 
 // ===== ГРАНИЦЫ
 $border-default: 1px solid $outline-variant;
-$border-emphasis: 2px solid $brand-primary;
+$border-emphasis: 2px solid $brand-safety;
+$border-weight: 2px solid $outline-variant;
 $border-footer: 1px solid $surface-dim;
 
 // ===== ТЕНИ
@@ -96,4 +97,4 @@ $shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.06);
 $shadow-xl: 0 10px 24px rgba(0, 0, 0, 0.12);
 
 // ===== MOTION
-$transition-default: 0.3s ease;
+$transition-default: all 0.3s ease-in-out;

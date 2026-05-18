@@ -1,0 +1,104 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/typography" as *;
+
+.about {
+  padding: $spacing-section-padding 0;
+  background-color: $surface-lowest;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-section-padding;
+
+    @include tablet {
+      gap: $spacing-stack-lg;
+    }
+
+    @include tablet-small {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__image {
+    border-radius: $radius-xl;
+
+    @include tablet-small {
+      grid-row: 2;
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  &__content {
+    @include flex(center, flex-start, column, nowrap, $spacing-stack-lg);
+
+    @include tablet {
+      gap: $spacing-stack-md;
+    }
+
+    @include mobile {
+      text-align: center;
+    }
+  }
+
+  &__sticker {
+    text-transform: uppercase;
+    color: $brand-safety;
+    @include headline-md;
+
+    @include tablet {
+      @include body-lg;
+    }
+
+    @include mobile {
+      margin: 0 auto;
+      @include label-md;
+    }
+  }
+
+  &__title {
+    color: $brand-primary;
+    @include headline-lg;
+
+    @include tablet {
+      @include headline-lg-mobile;
+    }
+
+    @include mobile {
+      @include headline-md;
+    }
+  }
+
+  &__description {
+    color: $on-surface-variant;
+    @include body-md;
+  }
+
+  &__more-info {
+    color: $brand-primary;
+    @include body-md;
+    transition: $transition-default;
+    display: inline-block;
+    background-image: linear-gradient(to right, $brand-safety, $brand-safety);
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+
+    &:hover {
+      background-size: 100% 2px;
+
+      span {
+        padding-left: 16px;
+        transition: $transition-default;
+      }
+    }
+
+    @include mobile {
+      margin: 0 auto;
+      background-size: 100% 2px;
+      @include caption;
+    }
+  }
+}

@@ -5,9 +5,7 @@ export const burgerMenu = () => {
   const burgerBtn = document.querySelector(".header__burger");
 
   const overlay = document.querySelector(".header__overlay");
-
-  console.log(overlay)
-
+  
   let isMenuOpen = false;
 
   function openMenu() {

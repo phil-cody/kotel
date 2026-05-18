@@ -1,7 +1,9 @@
+@use '../base/fonts' as *;
 @use '../abstracts/mixins' as *;
 @use '../abstracts/variables' as *;
 
 @mixin logo {
+  font-family: 'Dela Gothic One';
   font-size: $font-logo-size;
   font-weight: $font-logo-weight;
   line-height: $font-logo-line-height;

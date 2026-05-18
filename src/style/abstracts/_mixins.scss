@@ -27,6 +27,12 @@
   }
 }
 
+@mixin tablet-small {
+  @media (max-width: 906px) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media (max-width: 1024px) {
     @content;
@@ -44,6 +50,7 @@
   max-width: $spacing-container-max;
   margin-inline: auto;
   padding-inline: $spacing-margin-desktop;
+  position: relative;
 
   @include tablet {
     padding-inline: $spacing-margin-tablet;
@@ -61,5 +68,5 @@
 }
 
 @mixin transition-default {
-  transition: all $transition-default;
+  transition: $transition-default;
 }

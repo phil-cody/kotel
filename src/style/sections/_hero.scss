@@ -1,0 +1,51 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/typography" as *;
+
+.hero {
+  margin-top: 64px;
+  padding: $spacing-section-padding 0;
+  background: linear-gradient(to bottom, #00236fcc, #00236f99);
+  color: $surface-lowest;
+
+  &__content {
+    @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-lg);
+    max-width: 660px;
+
+    @include mobile {
+      margin: 0 auto;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__title {
+    @include display;
+
+    @include mobile {
+      @include headline-lg;
+    }
+  }
+
+  &__description {
+    @include body-lg;
+
+    @include mobile {
+      @include body-md;
+    }
+  }
+
+  &__phone {
+    font-size: $font-body-md-size;
+    transition: $transition-default;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    @include mobile {
+      max-width: 400px;
+      width: 100%;
+    }
+  }
+}

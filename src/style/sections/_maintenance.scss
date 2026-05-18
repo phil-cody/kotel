@@ -1,0 +1,81 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/typography" as *;
+
+.maintenance {
+  padding: $spacing-section-padding 0;
+  background-color: $surface-low;
+  border-bottom: $border-weight;
+  border-top: $border-weight;
+
+  .container {
+    @include flex(flex-start, center, column, nowrap, $spacing-stack-lg);
+    text-align: center;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    @include body-lg;
+    color: $brand-primary;
+  }
+
+  &__maintenance {
+    margin-top: -$spacing-gutter;
+    text-transform: lowercase;
+    @include body-md;
+    color: $on-surface-variant;
+  }
+
+  &__brands {
+    padding: $spacing-stack-xxs $spacing-stack-md;
+    border-radius: $radius-md;
+    text-transform: uppercase;
+    @include headline-lg;
+    font-weight: $font-display-weight;
+    @include flex(center, center, row, wrap, $spacing-stack-lg);
+    width: 100%;
+    color: $on-surface-variant;
+    background-color: $background;
+    opacity: 0.6;
+
+    @include mobile {
+      @include headline-md;
+      gap: $spacing-stack-md;
+    }
+  }
+
+  &__brand-item {
+    transition: $transition-default;
+    cursor: pointer;
+    
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  &__more-info {
+    color: $brand-primary;
+    @include body-md;
+    transition: $transition-default;
+    display: inline-block;
+    background-image: linear-gradient(to right, $brand-safety, $brand-safety);
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+
+    &:hover {
+      background-size: 100% 2px;
+
+      span {
+        padding-left: 16px;
+        transition: $transition-default;
+      }
+    }
+
+    @include mobile {
+      margin: 0 auto;
+      background-size: 100% 2px;
+      @include caption;
+    }
+  }
+}

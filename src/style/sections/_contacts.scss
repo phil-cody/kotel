@@ -1,0 +1,104 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/typography" as *;
+
+.contacts {
+  padding: $spacing-section-padding 0;
+  background-color: $background;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    column-gap: $spacing-margin-desktop;
+    row-gap: $spacing-stack-md;
+
+    @include tablet {
+      gap: $spacing-stack-md;
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(auto-fit, minmax(343px, 1fr));
+    }
+  }
+
+  &__title {
+    @include headline-lg;
+    color: $brand-primary;
+
+    @include tablet {
+      @include headline-lg-mobile;
+    }
+
+    @include tablet-small {
+      text-align: center;
+    }
+
+    @include mobile {
+      @include headline-md;
+    }
+  }
+
+  &__cards {
+    display: contents;
+  }
+
+  &__card {
+    padding: $spacing-stack-md;
+    background-color: $surface-lowest;
+    border-radius: $radius-default;
+    border: $border-default;
+    width: 100%;
+    @include flex(flex-start, flex-start, row, nowrap, $spacing-stack-md);
+
+    &-icon {
+      min-width: 20px;
+      width: 20px;
+      aspect-ratio: 1 / 1;
+      align-self: center;
+    }
+
+    &-text {
+      @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-xs);
+      @include label-md;
+      color: $on-surface-variant;
+    }
+
+    &-title {
+      font-size: $font-body-md-size;
+      color: $brand-primary;
+    }
+
+    & a {
+      transition: $transition-default;
+      display: inline-block;
+      background-image: linear-gradient(to right, $brand-safety, $brand-safety);
+      background-position: 0 100%;
+      background-size: 0% 2px;
+      background-repeat: no-repeat;
+
+      &:hover {
+        background-size: 100% 2px;
+      }
+    }
+
+    & a,
+    & p {
+      @include mobile {
+        @include caption;
+      }
+    }
+
+    &-links {
+      @include flex(flex-start, flex-start, row, nowrap, 0);
+
+      & a:not(:last-child) {
+        padding-right: $spacing-stack-xs;
+        border-right: $border-emphasis;
+      }
+
+      & a:not(:first-child) {
+        padding-left: $spacing-stack-xs;
+      }
+    }
+  }
+}

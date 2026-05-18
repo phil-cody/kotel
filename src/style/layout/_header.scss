@@ -1,12 +1,16 @@
+@use '../base/fonts' as *;
 @use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
 @use "../base/typography" as *;
 
 .header {
-  padding: 24px 0;
+  padding: $spacing-stack-sm 0;
+  background-color: $surface-lowest;
+  width: 100%;
+  position: fixed;
+  z-index: 900;
 
   .container {
-    @include container;
     @include flex(space-between, center, row);
   }
 
@@ -30,14 +34,24 @@
 
   &__nav {
     &-list {
-      @include flex(space-between, center, row, nowrap, minmax($spacing-stack-sm, $spacing-stack-lg));
-      max-width: 520px;
+      @include flex(space-between, center, row, nowrap, $spacing-stack-md);
+      max-width: 720px;
+      min-width: 572px;
       width: fit-content;
       text-align: center;
     }
 
     &-item {
       @include label-md;
+      transition: $transition-default;
+      background-image: linear-gradient(to right, $brand-safety, $brand-safety);
+      background-position: 0 100%;
+      background-size: 0% 2px;
+      background-repeat: no-repeat;
+
+      &:hover {
+        background-size: 100% 2px;
+      }
     }
 
     @include tablet {
@@ -48,12 +62,17 @@
   &__social {
     height: 100%;
     padding: $spacing-stack-sm;
+    transition: $transition-default;
 
     img {
       min-width: 22px;
       width: 22px;
       min-height: 22px;
       height: 22px;
+    }
+
+    &:hover {
+      opacity: 0.6;
     }
   }
 
@@ -72,6 +91,14 @@
 
     @include tablet {
       display: none;
+    }
+  }
+
+  &__phone {
+    transition: $transition-default;
+
+    &:hover {
+      opacity: 0.6;
     }
   }
 

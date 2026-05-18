@@ -1,0 +1,95 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/typography" as *;
+
+.services {
+  padding: $spacing-section-padding 0;
+  background-color: $background;
+
+  .container {
+    @include flex(flex-start, center, column, nowrap, $spacing-stack-lg);
+  }
+
+  &__content {
+    @include flex(flex-start, center, column, nowrap, $spacing-unit);
+    text-align: center;
+    max-width: 800px;
+  }
+
+  &__title {
+    color: $brand-primary;
+    @include headline-lg;
+
+    @include tablet {
+      @include headline-lg-mobile;
+    }
+
+    @include mobile {
+      @include headline-md;
+    }
+  }
+
+  &__description {
+    color: $on-surface-variant;
+    @include body-md;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: $spacing-gutter;
+    width: 100%;
+
+    @include mobile {
+      gap: $spacing-stack-md;
+    }
+  }
+
+  &__card {
+    background-color: $surface-lowest;
+    border: $border-default;
+    border-radius: $radius-md;
+    padding: $spacing-stack-lg;
+    @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-md);
+
+    &-icon {
+      width: 30px;
+    }
+
+    &-title {
+      color: $brand-primary;
+      @include headline-md;
+    }
+
+    &-description {
+      color: $on-surface-variant;
+      @include body-md;
+    }
+  }
+
+  &__more-info {
+    color: $brand-primary;
+    @include body-md;
+    transition: $transition-default;
+    display: inline-block;
+    background-image: linear-gradient(to right, $brand-safety, $brand-safety);
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+
+    &:hover {
+      background-size: 100% 2px;
+
+      span {
+        padding-left: 16px;
+        transition: $transition-default;
+      }
+    }
+
+    @include mobile {
+      margin: 0 auto;
+      background-size: 100% 2px;
+      @include caption;
+    }
+  }
+}

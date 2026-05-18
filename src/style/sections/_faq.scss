@@ -1,0 +1,91 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/typography" as *;
+
+.faq {
+  padding: $spacing-section-padding 0;
+  background-color: $surface-lowest;
+
+  .container {
+    @include flex(flex-start, center, column, nowrap, $spacing-stack-lg);
+  }
+
+  &__title {
+    @include headline-lg;
+    color: $brand-primary;
+
+    @include tablet {
+      @include headline-lg-mobile;
+    }
+
+    @include mobile {
+      @include headline-md;
+    }
+  }
+
+  &__content {
+    @include flex(flex-start, stretch, column, nowrap, $spacing-stack-md);
+  }
+
+  &__block {
+    background-color: $background;
+    border: $border-default;
+    border-radius: $radius-default;
+    padding: $spacing-stack-md;
+    position: relative;
+    @include flex(space-between, flex-start, row, nowrap, $spacing-stack-xs);
+
+    &.active .faq__text {
+      gap: $spacing-stack-md;
+    }
+
+    &.active .faq__open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__text {
+    @include flex(flex-start, stretch, column);
+    transition: $transition-default;
+    height: fit-content;
+  }
+
+  &__question {
+    @include body-lg;
+    color: $brand-primary;
+    cursor: pointer;
+  }
+
+  &__answer {
+    transition: $transition-default;
+    overflow: hidden;
+    max-height: 0;
+    @include body-md;
+    color:$on-surface-variant;
+    @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-sm);
+
+    ul, ol {
+      @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-xs);
+    }
+
+    ul {
+      padding-inline-start: $spacing-margin-desktop;
+      li {
+        list-style: disc;
+      }
+    }
+
+    ol li {
+      list-style: decimal;
+    }
+  }
+
+  &__open {
+    min-width: 20px;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+    transition: $transition-default;
+    position: relative;
+    top: 6px;
+  }
+}

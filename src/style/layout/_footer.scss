@@ -1,9 +1,10 @@
+@use '../base/fonts' as *;
 @use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
 @use "../base/typography" as *;
 
 .footer {
-  padding: $spacing-section-padding 0;
+  padding: $spacing-section-padding 0 $spacing-stack-lg;
   background-color: $on-surface-variant;
   color: $surface-dim;
 
@@ -12,7 +13,6 @@
   }
 
   .container {
-    @include container;
     @include flex(space-between, flex-start, column, nowrap, $spacing-stack-lg);
   }
 
@@ -34,7 +34,12 @@
     }
   }
 
-  h3,
+  h3 {
+    color: $surface-lowest;
+    @include logo;
+    font-family: $font-family-base;
+  }
+
   &__logo {
     color: $surface-lowest;
     @include logo;
@@ -57,7 +62,7 @@
 
   &__about {
     position: relative;
-    top: -18px;
+    top: -22px;
     max-width: 300px;
 
     @include mobile-small {
@@ -135,6 +140,11 @@
   &__social {
     display: block;
     padding: $spacing-stack-sm;
+    transition: $transition-default;
+
+    &:hover {
+      opacity: 0.7;
+    }
 
     img {
       min-width: 22px;
