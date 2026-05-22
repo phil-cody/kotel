@@ -1,15 +1,19 @@
-import { home } from '@/test-data/homePage';
+import { getBrandsList } from '@/api/getBrandsList';
+import { getHomepage } from '@/api/getHomepage';
 
 function createBrand(brand) {
-  return `<p class="maintenance__brand-item">${brand}</p>`;
+  return `<p class="maintenance__brand-item">${brand.name}</p>`;
 }
 
-export const renderMaintenance = () => {
-  document.querySelector('.maintenance__title').textContent = home.maintenance.title;
-  document.querySelector('.maintenance__description').textContent = home.maintenance.description;
-  document.querySelector('.maintenance__more-info').insertAdjacentHTML('afterbegin', home.maintenance.cta);
+export async function renderMaintenance() {
+  const maintenance = await getHomepage();
+  const maintenanceBrands = await getBrandsList();
+
+  document.querySelector('.maintenance__title').textContent = maintenance.maintenance_title;
+  document.querySelector('.maintenance__description').textContent = maintenance.maintenance_description;
+  document.querySelector('.maintenance__more-info').insertAdjacentHTML('afterbegin', maintenance.maintenance_cta);
 
   const brandsBox = document.querySelector('.maintenance__brands');
 
-  home.maintenance.brands.forEach(brand => brandsBox.insertAdjacentHTML('beforeend', createBrand(brand)));
+  maintenanceBrands.forEach(brand => brandsBox.insertAdjacentHTML('beforeend', createBrand(brand)));
 };

@@ -1,5 +1,5 @@
 import { getFaqList } from "@/api/getFaqList";
-import { getHomepage } from '@/api/getHomepage';
+import { getPricespage } from '@/api/getPricespage';
 import { API_URL } from "@/config/api";
 
 function createFaqItem(item, openIcon) {
@@ -16,8 +16,8 @@ function createFaqItem(item, openIcon) {
           </div>`;
 }
 
-export async function renderFaq() {
-  const faq = await getHomepage();
+export async function renderPrices() {
+  const prices = await getPricespage();
   const faqList = await getFaqList();
 
   document.querySelector('.faq__title').textContent = faq.title;

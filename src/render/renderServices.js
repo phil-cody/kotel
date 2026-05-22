@@ -1,11 +1,13 @@
-import { home } from '@/test-data/homePage';
+import { getHomepage } from '@/api/getHomepage';
+import { getServicesCards } from '@/api/getServicesCards';
+import { API_URL } from '@/config/api';
 
 function createCard(card) {
   return `
   <div class="services__card">
     <img
-      src="${card.icon.src}"
-      alt="${card.icon.alt}"
+      src="${API_URL}/assets/${card.icon}"
+      alt
       class="services__card-icon"
     >
     <h3 class="services__card-title">${card.title}</h3>
@@ -14,14 +16,15 @@ function createCard(card) {
   `;
 }
 
-export const renderServices = () => {
-  document.querySelector('.services__title').textContent = home.services.title;
-  document.querySelector('.services__description').textContent = home.services.description;
-  document.querySelector('.services__more-info').insertAdjacentHTML('afterbegin', home.services.cta);
+export async function renderServices() {
+  const services = await getHomepage();
+  const servicesCards = await getServicesCards();
+
+  document.querySelector('.services__title').textContent = services.services_title;
+  document.querySelector('.services__description').textContent = services.services_description;
+  document.querySelector('.services__more-info').insertAdjacentHTML('afterbegin', services.services_cta);
 
   const cardsBox = document.querySelector('.services__cards');
 
-  home.services.cards.forEach(card => {
-    cardsBox.insertAdjacentHTML("beforeend", createCard(card));
-  });
+  servicesCards.forEach(card => cardsBox.insertAdjacentHTML('beforeend', createCard(card)));
 };

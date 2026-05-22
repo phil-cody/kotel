@@ -31,7 +31,8 @@ export const burgerMenu = () => {
       isMenuOpen &&
       (target.classList.contains("header__overlay") ||
         target.classList.contains("burger-menu__close") ||
-        target.closest(".burger-menu__close"))
+        target.closest(".burger-menu__close")) ||
+        target.closest(".nav-link")
     ) {
       closeMenu();
     }

@@ -1,0 +1,27 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/typography" as *;
+
+.animation-link {
+  transition: $transition-default;
+  display: inline-block;
+  background-image: linear-gradient(to right, $brand-safety, $brand-safety);
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+
+  &:hover {
+    background-size: 100% 2px;
+
+    span {
+      padding-left: 16px;
+      transition: $transition-default;
+    }
+  }
+
+  @include mobile {
+    margin: 0 auto;
+    background-size: 100% 2px;
+    @include caption;
+  }
+}

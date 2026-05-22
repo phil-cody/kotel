@@ -1,10 +1,12 @@
-import { home } from "@/test-data/homePage";
+import { getContactsCardsLink, getContactsCardsText } from "@/api/getContactsCards";
+import { getHomepage } from '@/api/getHomepage';
+import { API_URL } from "@/config/api";
 
-function createIcon(icon) {
+function createIcon(card) {
   return `
     <img
-      src="${icon.src}"
-      alt="${icon.alt}"
+      src="${API_URL}/assets/${card.icon}"
+      alt="${card.title}"
       class="contacts__card-icon"
     >
   `;
@@ -28,13 +30,13 @@ function createLinks(links) {
 function createLinkCard(card) {
   return `
     <div class="contacts__card link">
-      ${createIcon(card.icon)}
+      ${createIcon(card)}
       <div class="contacts__card-text">
         <h3 class="contacts__card-title">
           ${card.title}
         </h3>
         <div class="contacts__card-links">
-          ${createLinks(card.anchors)}
+          ${createLinks(card.links)}
         </div>
       </div>
     </div>
@@ -44,7 +46,7 @@ function createLinkCard(card) {
 function createParaCard(card) {
   return `
     <div class="contacts__card para">
-      ${createIcon(card.icon)}
+      ${createIcon(card)}
       <div class="contacts__card-text">
         <h3 class="contacts__card-title">
           ${card.title}
@@ -52,23 +54,27 @@ function createParaCard(card) {
         <p
           class="contacts__card-para"
         >
-          ${card.value}
+          ${card.content}
         </p>
       </div>
     </div>
   `;
 }
 
-export const renderContacts = () => {
-  document.querySelector(".contacts__title").textContent = home.contacts.title;
+export async function renderContacts() {
+  const contacts = await getHomepage();
+  const contactsCardsLink = await getContactsCardsLink();
+  const contactsCardsText = await getContactsCardsText();
+
+  document.querySelector(".contacts__title").textContent = contacts.contacts_title;
 
   const cardsBox = document.querySelector(".contacts__cards");
 
-  Object.values(home.contacts.cards.para).forEach((card) => {
+  contactsCardsText.forEach((card) => {
     cardsBox.insertAdjacentHTML("beforeend", createParaCard(card));
   });
 
-  Object.values(home.contacts.cards.links).forEach((card) => {
+  contactsCardsLink.forEach((card) => {
     cardsBox.insertAdjacentHTML("beforeend", createLinkCard(card));
   });
 };
