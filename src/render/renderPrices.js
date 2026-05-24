@@ -1,32 +1,113 @@
-import { getFaqList } from "@/api/getFaqList";
-import { getPricespage } from '@/api/getPricespage';
+import { getPricePage } from "@/api/getPricePage";
+import { getPriceList } from "@/api/getPriceList";
+import { getTabsList } from "@/api/getTabsList";
+import { getPriceInfo } from "@/api/getPriceInfo";
+import { getPriceCategory } from "@/api/getPriceCategory";
 import { API_URL } from "@/config/api";
 
-function createFaqItem(item, openIcon) {
-  return `<div class="faq__block accordion">
-            <div class="faq__text">
-              <h3 class="faq__question">${item.question}</h3>
-              <div class="faq__answer accordion-item">${item.answer}</div>
-            </div>
-            <img 
-              class="faq__open"
-              src="${API_URL}/assets/${openIcon}"
-              alt
-            />
-          </div>`;
+function createTab(tab) {
+  return `<button class="prices__tab tab" data-category="${tab.slug}">${tab.name}</button>`;
+}
+
+function createRow(item, category) {
+  return `<div class="prices__row" data-category="${category}">
+                  <p class="prices__row-service">${item.name}</p>
+                  <p class="prices__row-price">${item.price}</p>
+                </div>`;
+}
+
+function createInfoItem(item, icon) {
+  return `<div class="prices__info-item">
+<img src="${API_URL}/assets/${icon}  class="prices__info-icon""/>
+<p class="prices__info-text">${item.text}</p>
+</div>`;
+}
+
+function createCertificateItem(item, icon) {
+  return `<img src="${API_URL}/assets/${icon}  class="prices__info-icon""/>
+<p class="prices__info-text">${item.text}</p>`;
 }
 
 export async function renderPrices() {
-  const prices = await getPricespage();
-  const faqList = await getFaqList();
+  const prices = await getPricePage();
+  const priceList = await getPriceList();
+  const tabsList = await getTabsList();
+  const priceInfo = await getPriceInfo();
+  const priceCategory = await getPriceCategory();
 
-  document.querySelector('.faq__title').textContent = faq.title;
+  const tabsBox = document.querySelector(".prices__tabs");
+  const table = document.querySelector(".prices__table");
+  const tableBody = table.querySelector(".prices__table-body");
+  const infoBox = document.querySelector(".prices__info");
+  const certificateBox = document.querySelector(".prices__certificate");
 
-  const faqBox = document.querySelector('.faq__content');
+  const infoItemIcon = prices.prices_info_item_icon;
+  const infoCertificateIcon = prices.prices_certificate_icon;
 
-  const openIcon = faq.faq_open_icon;
+  let currentCategory = priceCategory[0].slug;
 
-  faqList.forEach(item => {
-    faqBox.insertAdjacentHTML('beforeend', createFaqItem(item, openIcon));
+  function filterRows() {
+    return priceList.filter(
+      (item) => priceCategory[item.category - 1].slug === currentCategory,
+    );
+  }
+
+  tabsList.forEach((tab) => {
+    tabsBox.insertAdjacentHTML("beforeend", createTab(tab));
   });
-};
+
+  table.querySelector(".column-title__service").textContent =
+    prices.prices_row_service;
+  table.querySelector(".column-title__price").textContent =
+    prices.prices_row_price;
+
+  filterRows().forEach((item) => {
+    tableBody.insertAdjacentHTML("beforeend", createRow(item, currentCategory));
+  });
+
+  const tabs = document.querySelectorAll(".tab");
+
+  tabs[0].classList.add('active');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", (e) => {
+      tabs.forEach(item => item.classList.remove('active'));
+      tableBody.innerHTML = "";
+      currentCategory = e.target.dataset.category;
+      filterRows().forEach((item) => {
+        tableBody.insertAdjacentHTML(
+          "beforeend",
+          createRow(item, currentCategory),
+        );
+      });
+      tab.classList.add('active');
+    });
+  });
+
+  infoBox.querySelector(".prices__info-title").textContent =
+    prices.prices_info_title;
+  infoBox.querySelector('.prices__info-header').insertAdjacentHTML(
+    "afterbegin",
+    `<img src="${API_URL}/assets/${prices.prices_info_icon}"/>`,
+  );
+
+  priceInfo.forEach((item) => {
+    infoBox
+      .querySelector(".prices__info-content")
+      .insertAdjacentHTML("beforeend", createInfoItem(item, infoItemIcon));
+  });
+
+  certificateBox
+    .querySelector(".certificate__icon-box")
+    .insertAdjacentHTML(
+      "beforeend",
+      `<img src="${API_URL}/assets/${infoCertificateIcon}  class="certificate-icon""/>`,
+    );
+
+  certificateBox.querySelector(".certificate__text-box").insertAdjacentHTML(
+    "beforeend",
+    `<h3 class="certificate-title">${prices.prices_certificate_title}</h3>`,
+  );
+
+  certificateBox.querySelector(".certificate__text-box").insertAdjacentHTML('beforeend', prices.prices_certificate_text);
+}

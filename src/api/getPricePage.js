@@ -1,6 +1,6 @@
 import { API_URL } from "@/config/api";
 
-export async function getPricepage() {
+export async function getPricePage() {
   try {
     const response = await fetch(`${API_URL}/items/PricesPage`);
 

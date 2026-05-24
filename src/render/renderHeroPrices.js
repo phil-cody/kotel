@@ -1,7 +1,7 @@
-import { getPricepage } from '@/api/getPricespage';
+import { getPricePage } from '@/api/getPricePage';
 
 export async function renderHeroPrices() {
-  const hero = await getPricepage();
+  const hero = await getPricePage();
 
   const heroTitleEl = document.querySelector(".hero__title");
   const heroDescriptionEl = document.querySelector(".hero__description");

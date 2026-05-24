@@ -12,11 +12,13 @@ import { handleAccordion } from "@/handlers/handleAccordion";
 import { renderHeroPrices } from "@/render/renderHeroPrices";
 import { renderFaq } from "@/render/renderFaq";
 import { renderContacts } from "@/render/renderContacts";
+import { renderPrices } from "@/render/renderPrices";
 
 setFavicon(logo);
 burgerMenu();
 
 await renderHeroPrices();
+await renderPrices();
 await renderFaq();
 handleAccordion();
 await renderContacts();
