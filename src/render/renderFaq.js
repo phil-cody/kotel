@@ -20,7 +20,7 @@ export async function renderFaq() {
   const faq = await getHomepage();
   const faqList = await getFaqList();
 
-  document.querySelector('.faq__title').textContent = faq.title;
+  document.querySelector('.faq__title').textContent = faq.faq_title;
 
   const faqBox = document.querySelector('.faq__content');
 

@@ -6,6 +6,14 @@
   padding: $spacing-section-padding 0;
   background-color: $background;
 
+  @include tablet {
+    padding: $spacing-margin-desktop 0;
+  }
+
+  @include mobile {
+    padding: $spacing-margin-tablet 0;
+  }
+
   .container {
     @include flex(flex-start, center, column, nowrap, $spacing-stack-lg);
   }

@@ -6,12 +6,26 @@
   background-color: $surface-low;
   padding: $spacing-section-padding 0;
 
+  @include tablet {
+    padding: $spacing-margin-desktop 0;
+  }
+
+  @include mobile {
+    padding: $spacing-margin-tablet 0;
+  }
+
   .container {
-    @include flex(flex-start, flex-start, column, nowrap, 32px);
+    @include flex(flex-start, flex-start, column, nowrap, $spacing-gutter);
+
+    @include tablet {
+      gap: $spacing-stack-md;
+    }
   }
 
   &__tabs {
-    @include flex(flex-start, center);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
     width: 100%;
     border-bottom: $border-default;
   }
@@ -28,6 +42,12 @@
     background-repeat: no-repeat;
     @include label-md;
     color: $on-surface-variant;
+    height: 100%;
+    width: 100%;
+
+    @include mobile {
+      padding: $spacing-stack-sm $spacing-stack-md;
+    }
 
     &.active {
       color: $brand-safety;
@@ -39,7 +59,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto 1fr;
-    gap: $spacing-gutter;
+    grid-auto-rows: auto;
+    gap: $spacing-stack-md;
+    width: 100%;
   }
 
   &__table {
@@ -52,6 +74,11 @@
     overflow: hidden;
     height: fit-content;
 
+    @include tablet {
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+
     &-header {
       @include flex(space-between, center, row);
       padding: $spacing-gutter;
@@ -62,6 +89,10 @@
       font-size: 12px;
     }
 
+    .column-title__price {
+      text-align: right;
+    }
+
     &-body {
       @include label-md;
       color: $brand-primary;
@@ -69,9 +100,13 @@
   }
 
   &__row {
-    @include flex(space-between, center, row);
+    @include flex(space-between, center, row, nowrap, $spacing-stack-sm);
     padding: $spacing-gutter;
     background-color: $surface-lowest;
+
+    &-price {
+      text-wrap: nowrap;
+    }
 
     &:not(:last-child) {
       border-bottom: $border-default;
@@ -86,11 +121,19 @@
     border-radius: $radius-default;
     overflow: hidden;
     padding: $spacing-gutter;
-    background-color: $surface-dim;
+    background-color: $surface-lowest;
     @include flex(flex-start, stretch, column, nowrap, $spacing-stack-md);
+
+    @include tablet {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
 
     &-header {
       @include flex(flex-start, center, row, nowrap, $spacing-stack-sm);
+    }
+
+    &-title {
       @include headline-md;
       color: $brand-primary;
     }
@@ -99,6 +142,10 @@
       @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-md);
       @include body-md;
       color: $on-surface-variant;
+
+      @include mobile {
+        gap: $spacing-stack-sm;
+      }
     }
 
     &-item {
@@ -117,6 +164,11 @@
     background-color: $surface-lowest;
     height: fit-content;
     @include flex(flex-start, center, row, nowrap, $spacing-stack-md);
+
+    @include tablet {
+      grid-column: 1 / -1;
+      grid-row: 3;
+    }
   }
 
   .certificate__icon-box {

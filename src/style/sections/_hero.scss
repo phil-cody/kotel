@@ -8,6 +8,14 @@
   background: linear-gradient(to bottom, #00236fcc, #00236f99);
   color: $surface-lowest;
 
+  @include tablet {
+    padding: $spacing-margin-desktop 0;
+  }
+
+  @include mobile {
+    padding: $spacing-margin-tablet 0;
+  }
+
   &__content {
     @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-lg);
     max-width: 660px;

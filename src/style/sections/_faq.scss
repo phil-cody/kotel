@@ -6,8 +6,20 @@
   padding: $spacing-section-padding 0;
   background-color: $surface-lowest;
 
+  @include tablet {
+    padding: $spacing-margin-desktop 0;
+  }
+
+  @include mobile {
+    padding: $spacing-margin-tablet 0;
+  }
+
   .container {
     @include flex(flex-start, center, column, nowrap, $spacing-stack-lg);
+
+    @include tablet {
+      gap: $spacing-stack-md;
+    }
   }
 
   &__title {
