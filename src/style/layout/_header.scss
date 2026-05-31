@@ -64,13 +64,6 @@
     padding: $spacing-stack-sm;
     transition: $transition-default;
 
-    img {
-      min-width: 22px;
-      width: 22px;
-      min-height: 22px;
-      height: 22px;
-    }
-
     &:hover {
       opacity: 0.6;
     }
@@ -80,14 +73,6 @@
     width: fit-content;
     height: 100%;
     @include flex(space-between, center, row, nowrap, $spacing-stack-md);
-
-    & .social-wa {
-      background-color: $whatsapp-icon-background;
-    }
-
-    & .social-tg {
-      background-color: $telegram-icon-background;
-    }
 
     @include tablet {
       display: none;

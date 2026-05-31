@@ -1,8 +1,12 @@
 import { getBrandsList } from '@/api/getBrandsList';
 import { getHomepage } from '@/api/getHomepage';
+import { API_URL } from '@/config/api';
 
 function createBrand(brand) {
-  return `<p class="maintenance__brand-item">${brand.name}</p>`;
+  return `<a href="../brands/brands.html" class="maintenance__brand-icon"><img
+      src="${API_URL}/assets/${brand.icon}"
+      alt
+    ></a>`;
 }
 
 export async function renderMaintenance() {

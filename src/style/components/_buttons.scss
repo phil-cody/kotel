@@ -11,4 +11,19 @@
   @include label-md;
   cursor: pointer;
   background-color: $brand-safety;
+
+  img {
+    min-width: 22px;
+    width: 22px;
+    min-height: 22px;
+    height: 22px;
+  }
+
+  &.social-wa {
+    background-color: $whatsapp-icon-background;
+  }
+
+  &.social-tg {
+    background-color: $telegram-icon-background;
+  }
 }

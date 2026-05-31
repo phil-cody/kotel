@@ -2,6 +2,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { Certificate } from "node:crypto";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -10,9 +11,9 @@ export default {
   mode: "development",
   entry: {
     home: "./src/pages/home/home.js",
-    about: "./src/pages/about/about.js",
-    brands: "./src/pages/brands/brands.js",
     prices: "./src/pages/prices/prices.js",
+    certificate: "./src/pages/certificate/certificate.js",
+    contacts: "./src/pages/contacts/contacts.js"
   },
   output: {
     filename: "pages/[name]/[name].js",
@@ -41,22 +42,22 @@ export default {
       chunks: ["home"],
     }),
     new HtmlWebpackPlugin({
-      template: "./src/pages/about/about.html",
-      filename: "pages/about/about.html",
-      chunks: ["about"],
-    }),
-    new HtmlWebpackPlugin({
-      template: "./src/pages/brands/brands.html",
-      filename: "pages/brands/brands.html",
-      chunks: ["brands"],
-    }),
-    new HtmlWebpackPlugin({
       template: "./src/pages/prices/prices.html",
       filename: "pages/prices/prices.html",
       chunks: ["prices"],
     }),
     new MiniCssExtractPlugin({
       filename: "style/style.css"
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/pages/certificate/certificate.html",
+      filename: "pages/certificate/certificate.html",
+      chunks: ["certificate"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/pages/contacts/contacts.html",
+      filename: "pages/contacts/contacts.html",
+      chunks: ["contacts"],
     })
   ],
   module: {

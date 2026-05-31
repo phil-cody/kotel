@@ -26,5 +26,3 @@ await renderMaintenance();
 await renderFaq();
 handleAccordion();
 await renderContacts();
-
-// todo: после создания страницы с брендами на главной странице бренды колонок сделать ссылками ведущими на страницу с брендами к определенному бренду по id
