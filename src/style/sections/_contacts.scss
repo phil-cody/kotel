@@ -4,7 +4,8 @@
 
 .contacts {
   padding: $spacing-section-padding 0;
-  background-color: $background;
+  background-color: $surface-low;
+  flex: 1;
 
   @include tablet {
     padding: $spacing-margin-desktop 0;
@@ -32,6 +33,7 @@
   &__title {
     @include headline-lg;
     color: $brand-primary;
+    align-self: center;
 
     @include tablet {
       @include headline-lg-mobile;
@@ -56,7 +58,7 @@
     border-radius: $radius-default;
     border: $border-default;
     width: 100%;
-    @include flex(flex-start, flex-start, row, nowrap, $spacing-stack-md);
+    @include flex(flex-start, center, row, nowrap, $spacing-stack-md);
 
     &-icon {
       min-width: 20px;

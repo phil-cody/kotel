@@ -11,6 +11,7 @@
 @use './pages/home';
 @use './pages/prices';
 @use './pages/certificate';
+@use './pages/privacy';
 @use './layout/footer';
 
 body {
@@ -20,5 +21,6 @@ body {
 }
 
 main {
+  @include flex(flex-start, stretch, column);
   flex: 1;
 }

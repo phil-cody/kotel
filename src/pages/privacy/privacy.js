@@ -9,19 +9,9 @@ import { setFavicon } from "@/utils/setFavicon";
 import { burgerMenu } from "@/components/burgerMenu";
 import { handleAccordion } from "@/handlers/handleAccordion";
 
-import { getPricePage } from "@/api/getPricePage";
-
-import { renderHero } from "@/render/renderHero";
-import { renderPrices } from "@/render/renderPrices";
-import { renderPrevention } from "@/render/renderPrevention";
-import { renderCta } from "@/render/renderCta";
-
-const pricePage = await getPricePage();
+import { renderPrivacy } from "@/render/renderPrivacy";
 
 setFavicon(logo);
 burgerMenu();
 
-await renderHero(pricePage);
-await renderPrices();
-await renderPrevention(pricePage);
-await renderCta(pricePage);
+await renderPrivacy();

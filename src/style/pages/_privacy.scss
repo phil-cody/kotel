@@ -1,0 +1,33 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/typography" as *;
+
+.privacy {
+  margin-top: 64px;
+  background-color: $surface-low;
+  padding: $spacing-section-padding 0;
+
+  @include tablet {
+    padding: $spacing-margin-desktop 0;
+  }
+
+  @include mobile {
+    padding: $spacing-margin-tablet 0;
+  }
+
+  .container {
+    @include flex(flex-start, stretch, column, nowrap, $spacing-stack-lg);
+
+    @include tablet {
+      gap: $spacing-stack-md;
+    }
+  }
+
+  &__title {
+    @include headline-lg;
+
+    @include mobile {
+      @include headline-lg-mobile;
+    }
+  }
+}

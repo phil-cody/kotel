@@ -12,7 +12,7 @@ import { handleAccordion } from "@/handlers/handleAccordion";
 import { getCertificatePage } from "@/api/getCertificatePage";
 
 import { renderCta } from "@/render/renderCta";
-import { renderHeroCertificate } from "@/render/renderHeroCertificate";
+import { renderHero } from "@/render/renderHero";
 import { renderIntroCertificate } from "@/render/renderIntro";
 import { renderGalleryCertificate } from "@/render/renderGalleryCertificate";
 import { renderTrust } from "@/render/renderTrust";
@@ -24,7 +24,7 @@ burgerMenu();
 
 const certificatePage = await getCertificatePage();
 
-await renderHeroCertificate();
+await renderHero(certificatePage);
 await renderIntroCertificate();
 await renderGalleryCertificate();
 await renderTrust();

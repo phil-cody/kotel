@@ -75,6 +75,47 @@
     }
   }
 
+  &__prevention {
+    grid-column: 3;
+    grid-row: 3;
+    width: 100%;
+    border: $border-default;
+    border-radius: $radius-default;
+    overflow: hidden;
+    padding: $spacing-gutter;
+    background-color: $surface-lowest;
+    @include flex(flex-start, stretch, column, nowrap, $spacing-stack-md);
+
+    @include tablet {
+      grid-column: 1 / -1;
+      grid-row: 4;
+    }
+
+    .prevention__header {
+      @include flex(flex-start, center, row, nowrap, $spacing-stack-sm);
+
+      img {
+        width: 20px;
+      }
+    }
+
+    .prevention__icon-box {
+      min-width: 20px;
+    }
+
+    .prevention__title {
+      @include headline-md;
+      color: $brand-primary;
+    }
+
+    .prevention__content {
+      border-left: $border-emphasis;
+      padding-left: $spacing-stack-sm;
+      @include body-md;
+      color: $on-surface-variant;
+    }
+  }
+
   &__more-info {
     color: $brand-primary;
     @include body-md;

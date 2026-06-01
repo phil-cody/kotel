@@ -13,7 +13,8 @@ export default {
     home: "./src/pages/home/home.js",
     prices: "./src/pages/prices/prices.js",
     certificate: "./src/pages/certificate/certificate.js",
-    contacts: "./src/pages/contacts/contacts.js"
+    contacts: "./src/pages/contacts/contacts.js",
+    privacy: "./src/pages/privacy/privacy.js"
   },
   output: {
     filename: "pages/[name]/[name].js",
@@ -58,6 +59,11 @@ export default {
       template: "./src/pages/contacts/contacts.html",
       filename: "pages/contacts/contacts.html",
       chunks: ["contacts"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/pages/privacy/privacy.html",
+      filename: "pages/privacy/privacy.html",
+      chunks: ["privacy"],
     })
   ],
   module: {

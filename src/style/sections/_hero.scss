@@ -2,7 +2,7 @@
 @use "../abstracts/variables" as *;
 @use "../base/typography" as *;
 
-.hero, .hero-prices, .hero-certificate {
+.hero, .hero-prices, .hero-certificate, .hero-contacts {
   margin-top: 64px;
   padding: $spacing-section-padding 0;
   background: linear-gradient(to bottom, #00236fcc, #00236f99);

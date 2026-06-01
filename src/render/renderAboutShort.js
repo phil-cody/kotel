@@ -20,5 +20,4 @@ export async function renderAboutShort() {
   document.querySelector('.about__sticker').textContent = about.about_sticker;
   document.querySelector('.about__title').textContent = about.about_title;
   document.querySelector('.about__description').textContent = about.about_description;
-  document.querySelector('.about__more-info').insertAdjacentHTML('afterbegin', about.about_cta);
 };
