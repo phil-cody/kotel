@@ -1,11 +1,21 @@
 import { getCertificatePage } from '@/api/getCertificatePage';
+import { API_URL } from '@/config/api';
+
+function createIcon(page) {
+  return `<img
+      src="${API_URL}/assets/${page.intro_icon}"
+      alt
+    />`;
+}
 
 export async function renderIntroCertificate() {
-  const certificatePage = await getCertificatePage();
+  const intro = await getCertificatePage();
 
-  const introTitleEl = document.querySelector(".intro__title");
-  const introDescriptionEl = document.querySelector(".intro__description");
+  const introTitleEl = document.querySelector(".intro-title");
+  const introDescriptionEl = document.querySelector(".intro-description");
+  const introBox = document.querySelector('.intro-header');
 
-  introTitleEl.textContent = certificatePage.intro_title;
-  introDescriptionEl.textContent = certificatePage.intro_description;
+  introBox.insertAdjacentHTML('afterbegin', createIcon(intro));
+  introTitleEl.textContent = intro.intro_title;
+  introDescriptionEl.textContent = intro.intro_description;
 };

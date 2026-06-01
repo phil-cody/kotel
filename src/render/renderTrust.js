@@ -22,7 +22,7 @@ export async function renderTrust() {
 
   const trustBox = document.querySelector('.trust__box');
   const trustTitleEl = document.querySelector(".trust__title");
-  console.log(trustCards)
+  
   trustTitleEl.textContent = certificatePage.trust_title;
   trustCards.forEach(card => trustBox.insertAdjacentHTML('beforeend', createCard(card)));
 };

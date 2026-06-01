@@ -1,0 +1,164 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/typography" as *;
+
+.dashboard {
+  padding: $spacing-section-padding 0;
+  background: $background;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    align-items: start;
+    gap: $spacing-stack-md;
+    width: 100%;
+  }
+
+  .gallery {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: $spacing-stack-md;
+    width: 100%;
+    text-align: center;
+
+    &__card {
+      background-color: $surface-lowest;
+      border-radius: $radius-default;
+      width: 100%;
+
+      &-title {
+        @include label-md;
+        color: $brand-primary;
+        padding: $spacing-stack-sm;
+      }
+
+      &:hover {
+        .gallery__card-title {
+          color: $brand-safety;
+        }
+      }
+    }
+
+    &__image-box {
+      overflow: hidden;
+      border-radius: $radius-default;
+      aspect-ratio: 1.5 / 1;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    @include tablet {
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+  }
+
+  .info {
+    grid-column: 3;
+    grid-row: 1;
+    width: 100%;
+    border: $border-default;
+    border-radius: $radius-default;
+    overflow: hidden;
+    padding: $spacing-gutter;
+    background-color: $surface-lowest;
+    @include flex(flex-start, stretch, column, nowrap, $spacing-stack-md);
+
+    @include tablet {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+
+    &-content {
+      @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-md);
+    }
+
+    &-header {
+      @include flex(
+        space-between,
+        center,
+        row-reverse,
+        nowrap,
+        $spacing-stack-sm
+      );
+      width: 100%;
+
+      img {
+        height: 40px;
+      }
+    }
+
+    &-title {
+      @include headline-md;
+      color: $brand-primary;
+    }
+
+    &-description {
+      @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-md);
+      @include body-md;
+      color: $on-surface-variant;
+      max-width: 90%;
+
+      @include mobile {
+        gap: $spacing-stack-sm;
+      }
+    }
+  }
+
+  .intro {
+    grid-column: 3;
+    grid-row: 2;
+    width: 100%;
+    border: $border-default;
+    border-radius: $radius-default;
+    overflow: hidden;
+    padding: $spacing-gutter;
+    background-color: $surface-lowest;
+    @include flex(flex-start, stretch, column, nowrap, $spacing-stack-md);
+
+    @include tablet {
+      grid-column: 1 / -1;
+      grid-row: 3;
+    }
+
+    &-content {
+      @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-md);
+    }
+
+    &-header {
+      @include flex(
+        space-between,
+        center,
+        row-reverse,
+        nowrap,
+        $spacing-stack-sm
+      );
+      width: 100%;
+
+      img {
+        height: 40px;
+      }
+    }
+
+    &-title {
+      @include headline-md;
+      color: $brand-primary;
+    }
+
+    &-description {
+      @include flex(flex-start, flex-start, column, nowrap, $spacing-stack-md);
+      @include body-md;
+      color: $on-surface-variant;
+      max-width: 90%;
+
+      @include mobile {
+        gap: $spacing-stack-sm;
+      }
+    }
+  }
+}
