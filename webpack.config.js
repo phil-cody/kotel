@@ -38,8 +38,8 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/pages/home/home.html",
-      filename: "home.html",
+      template: "./src/pages/home/index.html",
+      filename: "index.html",
       chunks: ["home"],
     }),
     new HtmlWebpackPlugin({
