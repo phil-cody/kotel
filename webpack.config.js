@@ -39,12 +39,12 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/pages/home/home.html",
-      filename: "pages/home/home.html",
+      filename: "home.html",
       chunks: ["home"],
     }),
     new HtmlWebpackPlugin({
       template: "./src/pages/prices/prices.html",
-      filename: "pages/prices/prices.html",
+      filename: "prices.html",
       chunks: ["prices"],
     }),
     new MiniCssExtractPlugin({
@@ -52,17 +52,17 @@ export default {
     }),
     new HtmlWebpackPlugin({
       template: "./src/pages/certificate/certificate.html",
-      filename: "pages/certificate/certificate.html",
+      filename: "certificate.html",
       chunks: ["certificate"],
     }),
     new HtmlWebpackPlugin({
       template: "./src/pages/contacts/contacts.html",
-      filename: "pages/contacts/contacts.html",
+      filename: "contacts.html",
       chunks: ["contacts"],
     }),
     new HtmlWebpackPlugin({
       template: "./src/pages/privacy/privacy.html",
-      filename: "pages/privacy/privacy.html",
+      filename: "privacy.html",
       chunks: ["privacy"],
     })
   ],
