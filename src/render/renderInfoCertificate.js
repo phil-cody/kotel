@@ -3,7 +3,7 @@ import { API_URL } from '@/config/api';
 
 function createIcon(page) {
   return `<img
-      src="${API_URL}/assets/${page.info_icon}"
+      src="${page.info_icon}"
       alt
     />`;
 }

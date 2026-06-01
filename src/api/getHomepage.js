@@ -1,17 +1,5 @@
-import { API_URL } from "@/config/api";
+import { homepage } from "@/data/homepage";
 
 export async function getHomepage() {
-  try {
-    const response = await fetch(`${API_URL}/items/Homepage`);
-
-    if (!response.ok) {
-      throw new Error('Ошибка загрузки homepage');
-    }
-
-    const result = await response.json();
-    
-    return result.data;
-  } catch (error) {
-    console.error(error);
-  }
+  return homepage;
 }

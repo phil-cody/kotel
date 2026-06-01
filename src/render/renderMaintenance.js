@@ -1,10 +1,9 @@
 import { getBrandsList } from '@/api/getBrandsList';
 import { getHomepage } from '@/api/getHomepage';
-import { API_URL } from '@/config/api';
 
 function createBrand(brand) {
   return `<div class="maintenance__brand-icon"><img
-      src="${API_URL}/assets/${brand.icon}"
+      src="${brand.icon}"
       alt
     ></div>`;
 }

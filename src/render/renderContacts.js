@@ -5,7 +5,7 @@ import { API_URL } from "@/config/api";
 function createIcon(card) {
   return `
     <img
-      src="${API_URL}/assets/${card.icon}"
+      src="${card.icon}"
       alt="${card.title}"
       class="contacts__card-icon"
     >

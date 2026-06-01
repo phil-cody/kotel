@@ -23,17 +23,8 @@
     @include flex(flex-start, flex-start, column, nowrap, 0);
     width: max-content;
 
-    p {
-      @include logo;
-      color: $brand-primary;
-    }
-
-    span {
-      color: $brand-safety;
-    }
-
     img {
-      width: 18px;
+      height: 49px;
     }
   }
 

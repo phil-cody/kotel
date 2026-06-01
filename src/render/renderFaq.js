@@ -10,7 +10,7 @@ function createFaqItem(item, openIcon) {
             </div>
             <img 
               class="faq__open"
-              src="${API_URL}/assets/${openIcon}"
+              src="${openIcon}"
               alt
             />
           </div>`;

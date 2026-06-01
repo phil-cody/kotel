@@ -1,7 +1,6 @@
 import "@/style/main.scss";
 
-import logo from "@/assets/image/logo.svg";
-import logoFont from "@/assets/fonts/DelaGothicOne-Regular.woff2";
+import logo from "@/assets/image/favicon.svg";
 import telegramLogo from "@/assets/image/icons/telegram.svg";
 import whatsappLogo from "@/assets/image/icons/whatsapp.svg";
 

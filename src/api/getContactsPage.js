@@ -1,17 +1,6 @@
-import { API_URL } from "@/config/api";
+import { contactsPage } from "@/data/contacts_page";
 
 export async function getContactsPage() {
-  try {
-    const response = await fetch(`${API_URL}/items/ContactsPage`);
-
-    if (!response.ok) {
-      throw new Error('Ошибка загрузки contacts page');
-    }
-
-    const result = await response.json();
-    
-    return result.data;
-  } catch (error) {
-    console.error(error);
-  }
+  return contactsPage;
 }
+

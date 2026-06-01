@@ -6,7 +6,7 @@ function createCard(card) {
   return `
   <div class="services__card">
     <img
-      src="${API_URL}/assets/${card.trust_icon}"
+      src="${card.trust_icon}"
       alt
       class="services__card-icon"
     >

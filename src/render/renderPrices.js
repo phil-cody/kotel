@@ -1,9 +1,7 @@
 import { getPricePage } from "@/api/getPricePage";
 import { getPriceList } from "@/api/getPriceList";
-import { getTabsList } from "@/api/getTabsList";
 import { getPriceInfo } from "@/api/getPriceInfo";
 import { getPriceCategory } from "@/api/getPriceCategory";
-import { API_URL } from "@/config/api";
 
 function createTab(tab) {
   return `<button class="prices__tab tab" data-category="${tab.slug}">${tab.name}</button>`;
@@ -18,20 +16,19 @@ function createRow(item, category) {
 
 function createInfoItem(item, icon) {
   return `<div class="prices__info-item">
-<img src="${API_URL}/assets/${icon}  class="prices__info-icon""/>
+<img src="${icon}"  class="prices__info-icon"/>
 <p class="prices__info-text">${item.text}</p>
 </div>`;
 }
 
 function createCertificateItem(item, icon) {
-  return `<img src="${API_URL}/assets/${icon}  class="prices__info-icon""/>
+  return `<img src="${icon}"  class="prices__info-icon"/>
 <p class="prices__info-text">${item.text}</p>`;
 }
 
 export async function renderPrices() {
   const prices = await getPricePage();
   const priceList = await getPriceList();
-  const tabsList = await getTabsList();
   const priceInfo = await getPriceInfo();
   const priceCategory = await getPriceCategory();
 
@@ -52,7 +49,7 @@ export async function renderPrices() {
     );
   }
 
-  tabsList.forEach((tab) => {
+  priceCategory.forEach((tab) => {
     tabsBox.insertAdjacentHTML("beforeend", createTab(tab));
   });
 
@@ -88,7 +85,7 @@ export async function renderPrices() {
     prices.prices_info_title;
   infoBox.querySelector('.prices__info-header').insertAdjacentHTML(
     "afterbegin",
-    `<img src="${API_URL}/assets/${prices.prices_info_icon}"/>`,
+    `<img src="${prices.prices_info_icon}"/>`,
   );
 
   priceInfo.forEach((item) => {
@@ -101,7 +98,7 @@ export async function renderPrices() {
     .querySelector(".certificate__icon-box")
     .insertAdjacentHTML(
       "beforeend",
-      `<img src="${API_URL}/assets/${infoCertificateIcon}  class="certificate-icon""/>`,
+      `<img src="${infoCertificateIcon}"  class="certificate-icon"/>`,
     );
 
   certificateBox.querySelector(".certificate__text-box").insertAdjacentHTML(
