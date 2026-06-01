@@ -28,6 +28,9 @@ body {
   font-family: $font-family-base;
   background-color: $surface-lowest;
   color: $on-surface-variant;
+  min-height: 100dvh;
+  position: relative;
+  @include flex(flex-start, stretch, column);
 }
 
 img, picture, video, canvas, svg {
@@ -66,4 +69,9 @@ li {
 
 #root, #__next {
   isolation: isolate;
+}
+
+main {
+  @include flex(flex-start, stretch, column);
+  flex: 1;
 }

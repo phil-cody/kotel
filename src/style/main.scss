@@ -13,14 +13,3 @@
 @use './pages/certificate';
 @use './pages/privacy';
 @use './layout/footer';
-
-body {
-  min-height: 100dvh;
-  position: relative;
-  @include flex(flex-start, stretch, column);
-}
-
-main {
-  @include flex(flex-start, stretch, column);
-  flex: 1;
-}
