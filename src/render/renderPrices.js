@@ -8,10 +8,22 @@ function createTab(tab) {
 }
 
 function createRow(item, category) {
-  return `<div class="prices__row" data-category="${category}">
-                  <p class="prices__row-service">${item.name}</p>
+  if (item.text) {
+    return `<div class="prices__row" data-category="${category}">
+                  <div class="prices__row-service">
+                    <p class="prices__row-title">${item.name}</p>
+                    <p class="prices__row-text">${item.text}</p>
+                  </div>
                   <p class="prices__row-price">${item.price}</p>
                 </div>`;
+  } else {
+    return `<div class="prices__row" data-category="${category}">
+                  <div class="prices__row-service">
+                    <p class="prices__row-title">${item.name}</p>
+                  </div>
+                  <p class="prices__row-price">${item.price}</p>
+                </div>`;
+  }
 }
 
 function createInfoItem(item, icon) {

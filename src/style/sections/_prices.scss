@@ -24,7 +24,7 @@
 
   &__tabs {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, 1fr);
     justify-items: center;
     width: 100%;
     border-bottom: $border-default;
@@ -101,11 +101,27 @@
 
   &__row {
     @include flex(space-between, center, row, nowrap, $spacing-stack-sm);
-    padding: $spacing-gutter;
+    padding: $spacing-stack-md;
     background-color: $surface-lowest;
 
+    &-service {
+      @inclide flex(flex-start, flex-start, column, nowrap, $spacing-stack-xs);
+      max-width: 80%;
+    }
+
+    &-title {
+      font-size: $font-body-md-size;
+    }
+
+    &-text {
+      color: $on-surface-variant;
+    }
+
     &-price {
-      text-wrap: nowrap;
+      text-wrap: wrap;
+      text-align: right;
+      max-width: 14%;
+      min-width: 100px;
     }
 
     &:not(:last-child) {

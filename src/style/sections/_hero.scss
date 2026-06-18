@@ -44,11 +44,11 @@
   }
 
   &__phone {
-    font-size: $font-body-md-size;
+    @include body-lg;
     transition: $transition-default;
 
     &:hover {
-      opacity: 0.6;
+      transform: scale(1.1);
     }
 
     @include mobile {
