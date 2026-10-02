@@ -26,7 +26,7 @@ HTML, SCSS, JavaScript (ES modules), Webpack.
 git clone https://github.com/phil-cody/kotel.git
 cd kotel
 npm install
-npm run dev
+npm run watch
 ```
 
-Production-сборка: `npm run prod`. Для локальной разработки с автоматической пересборкой: `npm run watch`.
+`npm run watch` запускает локальный сервер с автоматической пересборкой. Development- и production-сборки создаются командами `npm run dev` и `npm run prod`.
