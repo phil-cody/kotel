@@ -1,5 +1,4 @@
 import { getHomepage } from '@/api/getHomepage';
-import { API_URL } from "@/config/api";
 
 function createAboutShortImage(image) {
   const imageUrl = `${image}`;

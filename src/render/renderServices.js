@@ -1,6 +1,5 @@
 import { getHomepage } from '@/api/getHomepage';
 import { getServicesCards } from '@/api/getServicesCards';
-import { API_URL } from '@/config/api';
 
 function createCard(card) {
   return `

@@ -1,6 +1,5 @@
 import { getContactsCardsLink, getContactsCardsText } from "@/api/getContactsCards";
 import { getHomepage } from '@/api/getHomepage';
-import { API_URL } from "@/config/api";
 
 function createIcon(card) {
   return `

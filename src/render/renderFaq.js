@@ -1,6 +1,5 @@
 import { getFaqList } from "@/api/getFaqList";
 import { getHomepage } from '@/api/getHomepage';
-import { API_URL } from "@/config/api";
 
 function createFaqItem(item, openIcon) {
   return `<div class="faq__block accordion">

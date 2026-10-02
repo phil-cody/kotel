@@ -20,7 +20,7 @@ export default {
     filename: "pages/[name]/[name].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
-    publicPath: "/",
+    publicPath: "./",
   },
   resolve: {
     extensions: [".js"],
@@ -28,7 +28,7 @@ export default {
       "@": path.resolve(__dirname, "src"),
     }
   },
-  devtool: "source-map",
+  devtool: false,
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),

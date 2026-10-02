@@ -1,6 +1,5 @@
 import { getTrustCards } from '@/api/getTrustCards';
 import { getCertificatePage } from '@/api/getCertificatePage';
-import { API_URL} from '@/config/api';
 
 function createCard(card) {
   return `

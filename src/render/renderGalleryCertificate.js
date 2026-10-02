@@ -1,5 +1,4 @@
 import { getCertificateList } from '@/api/getCertificateList';
-import { API_URL} from '@/config/api';
 
 function createCard(item) {
   return `
